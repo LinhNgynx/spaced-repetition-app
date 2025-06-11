@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spaced Repetition Calendar</title>
+  <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="styles.css" />
+  
+</head>
+
+<body>
+  <div class="container">
+    <h2>📅 Spaced Repetition Calendar</h2>
+
+
+    <table>
+      <thead>
+        <tr>
+          <th>Topic</th>
+          <th>Start Date</th>
+          <th>Color</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="topicBody"></tbody>
+    </table>
+     <div class="controls">
+      <button onclick="addRow()"><i class="fas fa-plus"></i> Add Topic</button>
+      <button onclick="generateSchedule()"><i class="fas fa-calendar-check"></i> Generate Calendar</button>
+      <button onclick="exportTopics()"><i class="fas fa-file-export"></i> Export Topics</button>
+      <button onclick="document.getElementById('importFile').click()"><i class="fas fa-file-import"></i> Import
+        Topics</button>
+      <input type="file" id="importFile" accept=".json" onchange="importTopics(event)">
+    </div>
+    <div id="calendar"></div>
+    <div id="toast" class="toast"></div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>
