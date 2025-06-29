@@ -1450,7 +1450,7 @@
         eventDidMount: function (info) {
           const today = new Date().toISOString().split("T")[0];
           if (info.event.startStr === today) {
-            info.el.style.background = "linear-gradient(135deg, #4a90e2, #2d9cdb)"; // Blue gradient for today
+            info.el.style.background = info.event.backgroundColor; // Blue gradient for today
             info.el.style.color = "#ffffff"; // White text for contrast
             info.el.style.fontWeight = "600";
             info.el.style.transform = "scale(1.05)";
