@@ -1007,7 +1007,7 @@
           <li><strong>Enable/Disable Reviews:</strong> Use the toggle switch to enable or disable spaced repetition for
             each topic</li>
           <li><strong>Export/Import:</strong> Save your topics as JSON files and share them across devices</li>
-          <li><strong>Today's Reviews:</strong> Items due today are highlighted with a special golden gradient</li>
+          <li><strong>Today's Reviews:</strong> Items due today are highlighted with a special blue gradient</li>
         </ul>
       </div>
 
@@ -1450,12 +1450,15 @@
         eventDidMount: function (info) {
           const today = new Date().toISOString().split("T")[0];
           if (info.event.startStr === today) {
-            info.el.style.background = "linear-gradient(135deg, #f5d5a8, #ffc107)";
-            info.el.style.color = "#333";
+            info.el.style.background = "linear-gradient(135deg, #4a90e2, #2d9cdb)"; // Blue gradient for today
+            info.el.style.color = "#ffffff"; // White text for contrast
             info.el.style.fontWeight = "600";
             info.el.style.transform = "scale(1.05)";
             info.el.style.zIndex = "10";
-            info.el.style.boxShadow = "0 4px 15px rgba(255, 193, 7, 0.4)";
+            info.el.style.boxShadow = "0 4px 15px rgba(74, 144, 226, 0.4)";
+          } else {
+            info.el.style.background = info.event.backgroundColor; // Preserve card's original color
+            info.el.style.color = "#ffffff"; // Ensure readable text
           }
         }
       });
